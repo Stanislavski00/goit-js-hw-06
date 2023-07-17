@@ -12,3 +12,20 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const fragment = document.createDocumentFragment();
+
+for (const { url, alt } of images) {
+  const imgEl = document.createElement('img')
+  imgEl.src = url,
+    imgEl.alt = alt,
+    imgEl.classList.add('galery-js');
+    fragment.appendChild(imgEl);
+  
+}
+document.body.prepend(fragment);
+console.log(`This is a galery`);
+
+
+
+
