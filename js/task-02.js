@@ -7,11 +7,13 @@ const ingredients = [
   'Condiments',
 ];
 
-const jsUlEl = document.createElement("ul");
+const jsUlEl = document.createElement('ul');
 
-const jsLiEls = ingredients
-  .map((ingredient) => `<li>${ingredient}</li>`)
-  .join('');
+ingredients.forEach((ingredient) => {
+  const jsLiEl = document.createElement('li');
+  jsLiEl.textContent = ingredient;
+  jsLiEl.classList.add('item');
+  jsUlEl.appendChild(jsLiEl);
+});
 
-console.log(jsUlEl);
-document.body.insertAdjacentHTML('beforeend', `<ul>${jsLiEls}</ul>`);
+document.getElementById('ingredients').appendChild(jsUlEl);

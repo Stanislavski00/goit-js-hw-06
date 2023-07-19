@@ -13,19 +13,15 @@ const images = [
   },
 ];
 
-const fragment = document.createDocumentFragment();
+const galleryList = document.querySelector('.gallery');
 
-for (const { url, alt } of images) {
-  const imgEl = document.createElement('img')
-  imgEl.src = url,
-    imgEl.alt = alt,
-    imgEl.classList.add('galery-js');
-    fragment.appendChild(imgEl);
-  
-}
-document.body.prepend(fragment);
-console.log(`This is a galery`);
+const galleryItems = images
+  .map(({ url, alt }) =>
+      `<li class="gallery-item"><img class="gallery-image" src="${url}" alt="${alt}"></li>`
+  )
+  .join('');
 
+galleryList.insertAdjacentHTML('beforeend', galleryItems);
 
 
 
